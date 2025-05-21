@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Solicitar Reset de Senha</h2>
+  
+  <div *ngIf="mensagem" class="alert alert-success">
+    {{ mensagem }}
+  </div>
+  
+  <div *ngIf="erro" class="alert alert-danger">
+    {{ erro }}
+  </div>
+
+  <form (ngSubmit)="solicitarReset()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" 
+             [(ngModel)]="email" name="email" required>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Solicitar Reset</button>
+    <button type="button" class="btn btn-danger" (click)="router.navigate(['/login'])">Voltar</button>
+
+  </form>
+</div>

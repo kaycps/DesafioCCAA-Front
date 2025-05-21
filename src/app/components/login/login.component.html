@@ -1,0 +1,30 @@
+<div class="login-container">
+  <h2>Login</h2>
+  
+  <form (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="credenciais.email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" [(ngModel)]="credenciais.senha" name="senha" required>
+    </div>
+
+    <button type="submit" class="btn-login">Entrar</button>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </form>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Autenticando...</p>
+  </div>
+
+  <div class="links">
+    <a routerLink="/solicitar-reset">Esqueci minha senha</a>
+    <a routerLink="/cadastro">Criar nova conta</a>
+  </div>
+</div>
